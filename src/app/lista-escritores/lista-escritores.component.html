@@ -1,0 +1,7 @@
+<div class="escritores">
+    <div class="escritor" *ngFor='let escritor of arrEscritores'>
+        <h3>{{escritor.nombre}} {{escritor.apellidos}}</h3>
+        <img [src]="escritor.imagen" alt="">
+        <p>{{escritor.pais}}</p>
+    </div>
+</div>
