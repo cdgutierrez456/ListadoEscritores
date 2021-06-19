@@ -1,1 +1,10 @@
-<p>detalle works!</p>
+<div class="escritor">
+    <h2>{{ escritor?.nombre }} {{ escritor?.apellidos }}</h2>
+    <img [src]="escritor?.imagen" alt="">
+    <p>
+        {{ escritor?.pais.toUpperCase() }}
+    </p>
+</div>
+
+
+

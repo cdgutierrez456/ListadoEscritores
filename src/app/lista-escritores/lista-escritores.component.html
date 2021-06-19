@@ -7,9 +7,9 @@
 </select>
 
 <div class="escritores">
-    <div class="escritor" *ngFor='let escritor of arrEscritores'>
+    <div class="escritor" *ngFor='let escritor of arrEscritores' [routerLink]="['/escritores', escritor.id]">
         <h3>{{escritor.nombre}} {{escritor.apellidos}}</h3>
         <img [src]="escritor.imagen" alt="">
-        <p>{{escritor.pais}}</p>
+        <p>{{escritor.pais.toUpperCase()}}</p>
     </div>
 </div>

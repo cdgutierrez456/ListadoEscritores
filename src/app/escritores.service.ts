@@ -28,4 +28,13 @@ export class EscritoresService {
     });
   }
 
+  getById(escritorId): Promise<Escritor> {
+    return new Promise((resolve, reject) => {
+      const escritorFound = ESCRITORES.find(escritor => {
+        return escritor.id === escritorId;
+      });
+      resolve(escritorFound);
+    });
+  }
+
 }
