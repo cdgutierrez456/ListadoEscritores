@@ -13,4 +13,19 @@ export class EscritoresService {
     return ESCRITORES;
   }
 
+  getAllPromise(): Promise<Escritor[]> {
+    return new Promise((resolve, reject) => {
+      resolve(ESCRITORES);
+    });
+  }
+
+  getByPais(pPais: string): Promise<Escritor[]> {
+    return new Promise((resolve, reject) => {
+      const arrFiltrado = ESCRITORES.filter(escritor => {
+        return escritor.pais === pPais;
+      });
+      resolve(arrFiltrado);
+    });
+  }
+
 }

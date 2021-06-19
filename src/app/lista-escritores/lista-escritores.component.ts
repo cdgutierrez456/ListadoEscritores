@@ -13,8 +13,24 @@ export class ListaEscritoresComponent implements OnInit {
 
   constructor(private escritoresService: EscritoresService) { }
 
-  ngOnInit(): void {
-    this.arrEscritores = this.escritoresService.getAll();
+  async ngOnInit() {
+    // this.arrEscritores = this.escritoresService.getAll();
+    // this.escritoresService.getAllPromise()
+    //     .then(escritores => {
+    //       this.arrEscritores = escritores;
+    //     })
+
+    this.arrEscritores = await this.escritoresService.getAllPromise();
+    
+  }
+  
+  async onChange($event) {
+    console.log($event.target.value);
+    if($event.target.value === 'todos') {
+      this.arrEscritores = await this.escritoresService.getAllPromise();
+    } else {
+      this.arrEscritores = await this.escritoresService.getByPais($event.target.value);
+    }
   }
 
 }
